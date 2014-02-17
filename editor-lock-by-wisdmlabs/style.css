@@ -1,0 +1,141 @@
+@font-face {
+    font-family: 'open_sanslight';
+    src: url('fonts/opensans-light-webfont.eot');
+    src: url('fonts/opensans-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/opensans-light-webfont.woff') format('woff'),
+         url('fonts/opensans-light-webfont.ttf') format('truetype'),
+         url('fonts/opensans-light-webfont.svg#open_sanslight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.wrap{
+    font-family: 'open_sanslight';
+    line-height: 1.4;
+}
+
+.wdm-alertlink{
+    background-color:#FFFFCC;
+    color : #FF3300;
+    border: 1px solid yellowgreen;
+    padding:5px;
+    border-bottom: 0;
+}
+
+.wdm-alertlink:last-of-type{
+    border-bottom: 1px solid yellowgreen;
+}
+
+.wdm-alertlink a:link {color:#696969;}    /* unvisited link */
+.wdm-alertlink a:visited {color:#696969;} /* visited link */
+.wdm-alertlink a:hover {color:#FF3300;}   /* mouse over link */
+.wdm-alertlink a:active {color:#90EE90;}  /* selected link */
+
+.wdm-activities-info{
+    background-color: #FFFFCC;
+    padding: 5px;
+    border: 1px solid yellowgreen;
+    border-bottom: 0;
+}
+
+.wdm-activities-info:last-of-type{
+    border-bottom: 1px solid yellowgreen;
+}
+
+.blockedpeople li {
+    border-bottom: 1px solid #ccc;
+    margin-right: 40px;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+.blockedpeople li:last-child{
+    border-bottom: none;
+    padding-bottom: 0px;
+    margin-bottom: 2px;
+}
+
+.form-table th {font-weight:900}
+
+.wp-admin select {
+    padding: 9px;
+    height: auto;
+    width: 150px;
+    margin-left: 35px;
+}
+
+.inside{
+    background: #f3f4f6;
+    width: 700px;
+    border:  1px solid #d3d3d3;
+    margin-bottom: 30px;
+}
+
+h3.hndle{
+    width: 672px;
+    background: #2f363e;
+    color: white;
+    padding: 10px 15px;
+    margin-bottom: 0px;
+    font-size: 22px;
+}
+
+#wdm-editor-lock-settings-form .form-table th{
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.blockedpeople{
+    width: 300px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+input.wdm-unblock-blocked-user{
+    float: right;
+    position: relative;
+}
+
+.wdm-recent-activities{
+    width: 700px;
+}
+
+h3#title-recent-activities{
+    font-family: 'open_sanslight';
+    font-weight: normal;
+    font-size: 18px;
+}
+
+.wdm-block-button{
+    background-image: url("images/button-normal.png");
+    background-repeat: no-repeat;
+    width: 95px;
+    height: 31px;
+    color: white;
+    font-size: 13px;
+    border: none;
+    margin-left: 15px;
+}
+
+.wdm-block-button:hover{
+    background-image: url("images/button-hover.png");
+    cursor: pointer;
+}
+
+.wdm-block-button:active{
+    background-image: url("images/button-active.png");
+    cursor: pointer;
+}
+
+.div1{
+    width: 155px;
+    height: 40px;
+    right: -150px;
+    position: absolute;
+    margin-top: -29px;
+    background-image: url("images/unblock-admin.png");
+    background-repeat: no-repeat;
+}
