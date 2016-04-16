@@ -69,7 +69,7 @@ Yes, if you may deactivate the plugin any time and activate it again. Deactivati
 
 ### How can I give my feedback about this plugin? ###
 
-If you like this plugin and willing to show your love about it, then you may click the Donate button and donate as per your desire. If you have any suggestions or query , then please feel free to write us at info@wisdmlabs.com
+If you like this plugin and willing to show your love about it, then you may click the Donate button and donate as per your desire. If you have any suggestions or query , then please feel free to write us at info@wisdmlabs.com and you can like us on facebnook at https://www.facebook.com/wisdmlabs
 
 
 ## Changelog ##
