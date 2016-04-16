@@ -93,10 +93,10 @@ If you like this plugin and willing to show your love about it, then you may cli
 * Made changes in layout. Assigned new look to admin page.
 
 ### 1.2 ###
-* Fixed bugs found when plugin activated on Windows Server
+* Fixed bugs found when plugin activated on Windows Server.
 
 ### 1.1 ###
-* Made few changes in layout
+* Made few changes in layout.
 
 ### 1.0 ###
 * First version.
