@@ -18,12 +18,12 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
- function is_wisdm_editor_lock_plugin_screen() {  
+ function is_wisdm_editor_lock_plugin_screen() {
        if ($_GET['page'] == 'editor-lock-by-wisdmlabs/editor-lock.php' && is_admin()) {
-          return true;  
-       } else {  
-          return false;  
-       }  
+          return true;
+       } else {
+          return false;
+       }
 }
 
 add_action('admin_enqueue_scripts', 'wisdm_editor_lock_plugin_scripts');
@@ -42,16 +42,16 @@ function user_id_of_logged_in_user()
   global $wisdm_current_logged_in_user_id;
   $wisdm_current_logged_in_user_id = get_current_user_id();
   global $elbw_itr;
-  
-  
+
+
   /**
-  * Function to add a new option name, 'elbw_locked_users' to the options database table.  
-  * @return string Assigns a blank string to variable 'elbw_locked_users' 
+  * Function to add a new option name, 'elbw_locked_users' to the options database table.
+  * @return string Assigns a blank string to variable 'elbw_locked_users'
   */
   add_option('elbw_locked_users');
   add_option('elbw_maintain_logs');
   // Code to remove the names from the Block List starts here -->
-  
+
   $elbw_message = '';
   $matched = array();
   foreach ($_POST as $key => $value)
@@ -59,14 +59,14 @@ function user_id_of_logged_in_user()
       $elbw_message .= $key . ' ' . $value . '    ';
   }
   $elbw_demo_array = explode(',', get_option('elbw_locked_users'));
-  
+
   foreach ($elbw_demo_array as $elbw_paramName)
   {
       if (!empty($elbw_paramName))
       {
 	  $elbw_assignit = str_replace(' ', '', $elbw_paramName) . '_x';
 	  $elbw_pos = strpos($elbw_message, $elbw_assignit);
-  
+
 	  if ($elbw_pos !== FALSE)
 	  {
 	      $elbw_message = '';
@@ -86,9 +86,9 @@ function user_id_of_logged_in_user()
       }
   }
   //Code to remove the names from the Block List ends here -->
-  
+
   /**
-  * This function adds a user in the block list    
+  * This function adds a user in the block list
   * @param string $_POST['elbw_submit']  It is a value obtained from the form
   * @return string Adds a username into the database option 'elbw_locked_users'
   */
@@ -97,16 +97,16 @@ function user_id_of_logged_in_user()
       delete_option('elbw_maintain_logs');
       add_option('elbw_maintain_logs');
   }
-  
-  
-  
+
+
+
   if (isset($_POST['elbw_submit']) && $_POST['elbw_submit'] == 'Block')
   {
       $elbw_itr = $_POST['elbw_getadmins'];
       if ($elbw_itr != 1 && $elbw_itr != 'none')
       {
 	  $elbw_user_info = '(' . $elbw_itr . ')';
-  
+
 	  if (strpos(get_option('elbw_locked_users'), $elbw_user_info) === FALSE)
 	  {
 	      update_option('elbw_locked_users', get_option('elbw_locked_users') . ',' . $elbw_user_info);
@@ -139,7 +139,7 @@ function strleft($s1, $s2)
 register_uninstall_hook(__FILE__, 'elbw_deactivate');
 
 /**
- * Hook for Hiding Plugin Editor and Theme Editor 
+ * Hook for Hiding Plugin Editor and Theme Editor
  */
 add_action('admin_menu', 'elbw_my_remove_menu_elements', 102);
 add_action('admin_init', 'elbw_my_remove_menu_elements', 102);
@@ -206,7 +206,7 @@ function elbw_cannot_delete()
 }
 
 /**
- * This function disables 'Deactivate' Link for the blocked users 
+ * This function disables 'Deactivate' Link for the blocked users
  */
 function elbw_disable_plugin_deactivation($actions, $plugin_file)
 {
@@ -237,7 +237,7 @@ function block_newly_created_user($user_id)
 	    update_option('elbw_maintain_logs', date('l jS \of F Y h:i:s A') . '  UTC  ---' . ' <strong>   Info : </strong> ' . $str1 . $str2 . $str3 . ',' . get_option('elbw_maintain_logs'));
 	}
     }
-    
+
 }
 add_action( 'user_register', 'block_newly_created_user');
 /**
@@ -289,10 +289,10 @@ function elbw_baw_settings_page()
 	}
 	$elbw_fetch_database = $elbw_fetch_database - 1;
     }
-    ?> 
+    ?>
 <!--wrap starts here-->
     <div class="wrap wdm_leftwrap">
-      
+
 	 <h3 class="hndle" style="cursor: default"><span>WordPress Editor Lock Settings</span></h3>
 	 <div class="inside">
         <form method='post' action="" id="wdm-editor-lock-settings-form">
@@ -314,11 +314,11 @@ function elbw_baw_settings_page()
 			      if (strpos(get_option('elbw_locked_users', ''), '('.$elbw_get_user_name.')') === false) { ?>
 	    		    <option value='<?php echo $elbw_get_user_name; ?>'>
 				    <?php echo get_user_meta($elbw_get_user_name, 'nickname', true); ?>
-	    		    </option> 
+	    		    </option>
 			    <?php }}
 			}
 			?>
-    		</select> 
+    		</select>
     		<span class='submit'> <input class='wdm-block-button' onclick="if(document.getElementById('admindropdown').value != 'none') return confirm('Are you sure you want to block this user from accessing Plugin-Editor and Theme-Editor?'); else return false;" type='submit' name='elbw_submit' value= 'Block' /> </span>
     	    </td>
 	    </tr>
@@ -360,7 +360,7 @@ function elbw_baw_settings_page()
 			{
 			    preg_match('/[0-9]*[^\(\x20\)]/', $elbw_paramName, $matched);
 			    ?>
-			  
+
 			   <li id="blockedlist">
 			    <?php $blockedusername = get_user_meta($matched[0], 'nickname', true); if(!empty($blockedusername))
 			    {
@@ -369,8 +369,8 @@ function elbw_baw_settings_page()
 			      <div class="div1" style="display: none;"></div>
 		     <?php } ?>
 			   </li>
-			 
-	    		
+
+
 			<?php }
 		    } ?>
 		    </ul>
@@ -388,11 +388,11 @@ function elbw_baw_settings_page()
 	    $plugin_data  = get_plugin_data(__FILE__);
 	    $plugin_name = $plugin_data['Name'];
 	    $wdm_plugin_slug = 'editor-lock-by-wisdmlabs';
-      
+
 	    include_once('wisdm_sidebar/wisdm_sidebar.php');
 	    edit_lock_sidebar($plugin_name, $wdm_plugin_slug);
       ?>
-    
+
     <!--script for tool tip-->
     <script>
 jQuery(document).ready(function($){
@@ -406,7 +406,7 @@ function(){
 });
 </script>
     <!--script for tool tip ends-->
-    
+
       <?php
       $elbw_temp_array = explode(',', get_option('elbw_maintain_logs'));
       $elbw_temp_array = array_filter(array_slice($elbw_temp_array, 0, 20));
@@ -425,7 +425,7 @@ function(){
 		  {
 		    ?> <div class="wdm-activities-info"> <?php echo $elbw_paramName; ?> </div> <?php
 		  }
-	    } ?> 
+	    } ?>
         </div>
 	 <?php if (get_current_user_id() == 1)
 	 { ?>
@@ -438,25 +438,25 @@ function(){
 	    </div> <?php
 	 }
       }
-      
-}////Editor Lock Settings Page ENDS Here -->
+
+}//Editor Lock Settings Page ENDS Here -->
 
 function editor_lock_appeal_notice()
 {
     if((isset($_REQUEST['page']) && $_REQUEST['page'] == 'editor-lock-by-wisdmlabs/editor-lock.php') && (!empty($_POST)))
     {
 	$wdm_plugin_slug = 'editor-lock-by-wisdmlabs';
-    
+
 	?>
-    
+
 	<div class="wdm_appeal_text" style="background-color:#FFE698;padding:10px;margin-right:10px;">
 	    <strong>An Appeal:</strong>
 	    We strive hard to bring you useful, high quality plugins for FREE and to provide prompt responses to all your support queries.
 	    If you are happy with our work, please consider making a good faith donation, here -
-	    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=info%40wisdmlabs%2ecom&lc=US&item_name=WisdmLabs%20Plugin%20Donation&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest" target="_blank"> Donate now</a> 
+	    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=info%40wisdmlabs%2ecom&lc=US&item_name=WisdmLabs%20Plugin%20Donation&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest" target="_blank"> Donate now</a>
 	    and do post an encouraging review, here - <a href="http://wordpress.org/support/view/plugin-reviews/<?php echo $wdm_plugin_slug; ?>" target="_blank"> Review this plugin</a>.
 	</div>
-    
+
 	<?php
     }
 }
