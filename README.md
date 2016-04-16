@@ -100,4 +100,5 @@ If you like this plugin and willing to show your love about it, then you may cli
 ### 1.0 ###
 * First version.
 
+Added sample text
 
