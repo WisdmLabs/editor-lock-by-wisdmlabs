@@ -41,7 +41,7 @@ function edit_lock_sidebar($plugin_name, $wdm_plugin_slug)
         <div class="clear"></div>
         <div class="hr"></div>
         
-        <p id="text-left-align">Help improve this plugin by donating</p>
+        <p id="text-left-align">Help improve this plugin by donating to wisdmlabs</p>
         <div id="wdm-donate">
 	 <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 	 <input type="hidden" name="cmd" value="_donations">
